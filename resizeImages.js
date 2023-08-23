@@ -1,18 +1,15 @@
 const AWS = require('aws-sdk');
 const sharp = require('sharp');
-
 const s3 = new AWS.S3();
-
 require('dotenv').config();
 
-const SOURCE_BUCKET = process.env.SOURCE_BUCKET;
-const SOURCE_PREFIX = process.env.SOURCE_PREFIX;
-const DESTINATION_BUCKET = process.env.DESTINATION_BUCKET;
-const DESTINATION_FOLDER = process.env.DESTINATION_FOLDER;
-const RESIZE_IMAGE_WIDTH = parseInt(process.env.RESIZE_IMAGE_WIDTH, 10);
-
-
 async function processImage(srcBucket, srcKey) {
+    const SOURCE_BUCKET = process.env.SOURCE_BUCKET;
+    const SOURCE_PREFIX = process.env.SOURCE_PREFIX;
+    const DESTINATION_BUCKET = process.env.DESTINATION_BUCKET;
+    const DESTINATION_FOLDER = process.env.DESTINATION_FOLDER;
+    const RESIZE_IMAGE_WIDTH = parseInt(process.env.RESIZE_IMAGE_WIDTH, 10);
+
     const typeMatch = srcKey.match(/\.([^.]*)$/);
     if (!typeMatch) return;
 
