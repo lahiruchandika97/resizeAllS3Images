@@ -1,4 +1,4 @@
-# resizeAllS3Images
+# Resize All S3 Images and upload to new S3 bucket
 
 It's possible to run the script locally. However, you'll need to ensure your local environment has the necessary AWS credentials to access the S3 buckets. Use AWS CLI or SDK to configure credentials.
 
